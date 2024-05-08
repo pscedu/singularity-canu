@@ -1,0 +1,17 @@
+Bootstrap: docker
+From: continuumio/anaconda3
+
+%labels
+    AUTHOR icaoberg
+    EMAIL icaoberg@psc.edu
+    SUPPORT help@psc.edu
+    REPOSITORY http://gitub.com/pscedu/singularity-canu
+    COPYRIGHT Copyright © 2024 Pittsburgh Supercomputing Center. All Rights Reserved.
+    VERSION 1.5
+
+%post
+    apt update
+    conda install -c conda-forge -c bioconda -c defaults canu
+
+%runscript
+    canu "$@"
